@@ -1,0 +1,466 @@
+/* === GLOBAL === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+  font-size: 14px;
+  text-align: center;
+  display: block;
+  margin-top: 15px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+.success {
+  color: green;
+  margin-top: 10px;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* === CONTAINER SHARED === */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.page-heading {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 28px;
+  color: #333;
+}
+
+/* === SESSION LIST === */
+.session-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.session-card {
+  background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  color: #333;
+  transition: transform 0.2s ease;
+}
+
+.session-card:nth-child(2n) {
+  background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+}
+
+.session-card:nth-child(3n) {
+  background: linear-gradient(135deg, #d4fc79 0%, #96e6a1 100%);
+}
+
+.session-card:hover {
+  transform: translateY(-5px);
+}
+
+.session-card h4 {
+  margin-top: 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.session-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #555;
+}
+
+.url-link {
+  color: #0d47a1;
+  text-decoration: underline;
+  font-weight: 500;
+  word-break: break-word;
+}
+
+.edit-button {
+  margin-top: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.edit-button:hover {
+  background-color: #388e3c;
+}
+
+/* === AUTH PAGES === */
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+  flex-wrap: wrap;
+}
+
+.auth-left,
+.auth-right {
+  flex: 1 1 300px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.auth-left {
+  text-align: center;
+  background: #f0f4f8;
+}
+
+.auth-left h1 {
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+.auth-left img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.auth-right {
+  background-color: #ffffff;
+  border-left: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.auth-right h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.auth-right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-right input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.auth-right button {
+  padding: 10px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.auth-right button:hover {
+  background-color: #0056b3;
+}
+
+.auth-right p {
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.auth-right a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-right a:hover {
+  text-decoration: underline;
+}
+
+/* === SESSION EDITOR === */
+.editor-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background: linear-gradient(135deg, #007bff, #00b4d8, #0096c7);
+  background-size: 300% 300%;
+  animation: gradientShift 10s ease infinite, glowPulse 3s ease-in-out infinite;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
+.editor-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.editor-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-form input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+}
+
+.editor-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  gap: 10px;
+}
+
+.btn-draft {
+  background-color: #ffc107;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: black;
+  font-weight: bold;
+}
+
+.btn-draft:hover {
+  background-color: #e0a800;
+}
+
+.btn-publish {
+  background-color: #28a745;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  color: white;
+  font-weight: bold;
+}
+
+.btn-publish:hover {
+  background-color: #218838;
+}
+
+.error {
+  color: #ffcccc;
+  background: #ff4444;
+  padding: 8px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.autosave {
+  color: #d4fdd4;
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* === ANIMATIONS === */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(9, 123, 146, 0.8);
+  }
+}
+/* === BACKGROUNDS FOR MAIN PAGES === */
+
+.auth-right input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.auth-right input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+  transform: scale(1.02);
+}
+.auth-container {
+  display: flex;
+  min-height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1470&q=80');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 40px;
+}
+
+.auth-left, .auth-right {
+  flex: 1 1 400px;
+  padding: 40px;
+  box-sizing: border-box;
+}
+
+.auth-left {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(5px);
+  border-radius: 16px;
+  margin-right: 20px;
+  color: white;
+}
+
+.auth-left h1 {
+  margin-bottom: 20px;
+  font-size: 36px;
+  font-weight: bold;
+  color: #307beb   ; /* Aqua Blue or any contrasting color */
+  text-shadow: 2px 2px 6px rgba(79, 225, 230, 0.6);
+}
+
+.auth-left img {
+  max-width: 100%;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+}
+
+.auth-right {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.auth-right h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.auth-right form {
+  display: flex;
+  flex-direction: column;
+}
+
+.auth-right input {
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  background: linear-gradient(135deg, #e0f7fa, #ffffff);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.auth-right input:focus {
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+  transform: scale(1.02);
+}
+
+.auth-right button {
+  padding: 12px;
+  background: linear-gradient(to right, #007bff, #00b4d8);
+  border: none;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.auth-right button:hover {
+  background: linear-gradient(to right, #0056b3, #0096c7);
+}
+
+.auth-right p {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.auth-right a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.auth-right a:hover {
+  text-decoration: underline;
+}
+
+/* === BACKGROUNDS FOR MAIN PAGES === */
+
+/* Dashboard Background */
+.dashboard-bg {
+  background-image: url('https://static.vecteezy.com/system/resources/previews/029/333/405/large_2x/ai-generative-of-a-man-practicing-mindfulness-and-meditation-in-a-peaceful-natural-environment-sony-a7s-realistic-image-ultra-hd-high-design-very-detailed-free-photo.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 40px 20px;
+  backdrop-filter: blur(2px);
+}
+
+/* MySessions Background */
+.sessions-bg {
+  background-image: url('https://tse3.mm.bing.net/th/id/OIP.Gdvlusp63LdHQbO97TNk5AHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 40px 20px;
+  backdrop-filter: blur(2px);
+}
+
+/* Editor Background */
+.editor-bg {
+  background-image: url('https://i.ytimg.com/vi/H2AN1lUGrLE/maxresdefault.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 60px 20px;
+  
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(3px);
+}
